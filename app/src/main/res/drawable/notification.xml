@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item android:drawable="@drawable/rectangle_26"/>
+
+    <!-- Define the bell drawable with padding -->
+    <item>
+        <inset
+            android:drawable="@drawable/bell_16px"
+            android:insetTop="8dp"
+            android:insetRight="8dp"
+            android:insetBottom="8dp"
+            android:insetLeft="8dp" />
+    </item>
+</layer-list>

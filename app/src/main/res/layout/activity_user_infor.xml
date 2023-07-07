@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserInforActivity">
+
+ <include layout="@layout/toolbar_user_infor" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="162dp"
+     android:gravity="center"
+     android:orientation="vertical"
+     android:paddingTop="15dp">
+
+  <com.mikhaellopez.circularimageview.CircularImageView
+      android:layout_width="86dp"
+      android:layout_height="83dp"
+      android:src="@drawable/avatar_user_settinh"
+      tools:ignore="ImageContrastCheck" />
+
+  <TextView
+      android:id="@+id/nameProfile"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/hi_my_profile"
+      android:textColor="@android:color/holo_red_dark"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      tools:ignore="TextSizeCheck" />
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="3dp"
+      android:layout_marginTop="10dp"
+      android:background="@color/black" />
+
+
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_person"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="User Name"
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/nameEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:maxLines="1"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_transgender"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="Gender       "
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/genderEditText"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="text"
+      android:maxLines="1"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="8dp"
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_cancellation"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="Date            "
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/dateEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="date"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_local_phone"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="Phone         "
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/phoneEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="phone"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_email"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="Email           "
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/emailEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="textEmailAddress"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="40dp"
+     android:layout_marginTop="15dp"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+     android:paddingLeft="15dp"
+     android:paddingRight="15dp">
+
+  <ImageView
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:contentDescription="TODO"
+      android:src="@drawable/icon_fmd_good"
+      tools:ignore="ContentDescription,HardcodedText" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:text="Address       "
+      android:textColor="@color/black"
+      android:textSize="18dp"
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+  <EditText
+      android:id="@+id/address_editText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="25dp"
+      android:layout_weight="1"
+      android:autofillHints=""
+      android:ems="10"
+      android:inputType="textMultiLine"
+      android:text=""
+      android:textSize="20sp"
+      android:textStyle="normal"
+      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+
+ </LinearLayout>
+
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="1dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginTop="10dp"
+
+     android:layout_marginRight="15dp"
+     android:background="@android:color/black" />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="77dp"
+     android:layout_marginTop="10dp"
+     android:gravity="center"
+     android:orientation="horizontal"
+     tools:ignore="UselessLeaf">
+
+
+  <Button
+      android:id="@+id/update_Profile"
+      android:layout_width="125dp"
+      android:layout_height="48dp"
+      android:layout_gravity="center"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="2dp"
+      android:background="@drawable/gray_transparent_button"
+      android:text="@string/update"
+      android:textColor="#880E4F"
+      android:textStyle="bold" />
+
+
+ </LinearLayout>
+
+</LinearLayout>

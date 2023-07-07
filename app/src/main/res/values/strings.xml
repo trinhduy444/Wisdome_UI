@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="facebook_app_id">1234</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="title_activity_delivery">DeliveryActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="logout">Logout</string>
+
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tr_ng_minh_ngh_a">Trương Minh Nghĩa</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="update">UPDATE</string>
+    <string name="hi_my_profile">Hi My Profile</string>
+
+
+    // Here
+    <string name="ng_k">Đăng Ký</string>
+    <string name="user_name">User Name</string>
+    <string name="u_i_v_ti_t_ki_m">Ưu đãi và tiết kiệm</string>
+    <string name="discounts_and_savings">Discounts and savings</string>
+    <string name="rewards">Rewards</string>
+    <string name="membership">Membership</string>
+    <string name="introduce">Introduce</string>
+    <string name="my_account">My Account</string>
+    <string name="offers_for_members">Offers for members</string>
+    <string name="favourite">Favourite</string>
+    <string name="payment_methods">Payment methods</string>
+    <string name="booked">Booked</string>
+    <string name="saved_places">Saved places</string>
+    <string name="sos_contact_number">SOS contact number</string>
+    <string name="general">General</string>
+    <string name="support_center">Support Center</string>
+    <string name="setting">Setting</string>
+    <string name="share_feedback">Share feedback</string>
+    <string name="chance">Chance</string>
+    <string name="happy_hands">Happy hands</string>
+    <string name="drive_with_us">Drive with us</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="home">home</string>
+    <string name="shop">shop</string>
+    <string name="search">search</string>
+    <string name="person">person</string>
+    <string name="user">user</string>
+    <string name="login_to_yo">LOGIN TO YOUR ACCOUNT</string>
+    <string name="don_t_have_">Dont have account?  </string>
+
+    <string name="wisdom_deli">WISDOM\nDELIVERY</string>
+
+    <string name="payment_toolbar">Payment Method</string>
+    <string name="add_card">Add card</string>
+    <string name="icon_description">Go back</string>
+    <string name="add_card_title">* Your card information will be kept safe</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</string>
+</resources>

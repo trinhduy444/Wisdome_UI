@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/foodCardColumn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="32dp"
+    android:background="#FFFFFF">
+
+
+    <ImageView
+        android:id="@+id/foodImagePromo"
+        android:layout_width="86dp"
+        android:layout_height="93dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/assorted_sliced_fruits_in_white_ceramic_bowl_10927301" />
+
+    <TextView
+        android:id="@+id/foodNamePromo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Fruit salad mix"
+        android:textColor="#3E4462"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/foodDiscountedPricePromo"
+        app:layout_constraintStart_toEndOf="@+id/foodImagePromo"
+        app:layout_constraintTop_toTopOf="@+id/foodImagePromo" />
+
+    <TextView
+        android:id="@+id/foodAmountPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/bg_food_amount"
+        android:fontFamily="@font/poppins"
+        android:includeFontPadding="false"
+        android:text="5 left"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/foodImagePromo"
+        app:layout_constraintStart_toStartOf="@+id/foodImagePromo"
+        app:layout_constraintTop_toBottomOf="@+id/foodImagePromo" />
+
+    <TextView
+        android:id="@+id/foodDiscountedPricePromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="11dp"
+        android:fontFamily="@font/poppins_medium"
+        android:includeFontPadding="false"
+        android:paddingTop="2dp"
+        android:text="18.500"
+        android:textColor="#7E7E7E"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/foodDescriptionPromo"
+        app:layout_constraintEnd_toStartOf="@+id/foodOriginalPricePromo"
+        app:layout_constraintStart_toEndOf="@+id/foodImagePromo"
+        app:layout_constraintTop_toBottomOf="@+id/foodNamePromo" />
+
+    <TextView
+        android:id="@+id/foodOriginalPricePromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:fontFamily="@font/poppins"
+        android:foreground="@drawable/strikethrough"
+        android:includeFontPadding="false"
+        android:text="22.500"
+        android:textColor="#CACACA"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/foodDiscountedPricePromo"
+        app:layout_constraintStart_toEndOf="@+id/foodDiscountedPricePromo"
+        app:layout_constraintTop_toTopOf="@+id/foodDiscountedPricePromo" />
+
+    <TextView
+        android:id="@+id/foodDescriptionPromo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawablePadding="7dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Free delivery"
+        android:textColor="#7E7E7E"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/discount_promo"
+        app:layout_constraintBottom_toBottomOf="@id/foodImagePromo"
+        app:layout_constraintStart_toEndOf="@+id/foodImagePromo"
+        app:layout_constraintTop_toBottomOf="@+id/foodDiscountedPricePromo" />
+
+    <ImageView
+        android:id="@+id/foodFavorite"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/bg_circle"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/foodNamePromo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/foodNamePromo"
+        app:srcCompat="@drawable/heart_favourite_like" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/foodDescriptionPromo"
+        app:srcCompat="@drawable/edit" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F8F5F2"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="1"
+        android:textColor="#3E4462"
+        android:textSize="12sp"
+        app:drawableEndCompat="@drawable/plus_add"
+        app:drawableStartCompat="@drawable/minus"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/foodFavorite"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
