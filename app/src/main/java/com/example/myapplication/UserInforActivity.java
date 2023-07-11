@@ -25,8 +25,8 @@ import org.json.JSONObject;
 public class UserInforActivity extends AppCompatActivity {
 
     ImageView ReturnPreviousButton;
-    EditText email, address,phoneNumber,nameEditTextActivity,genderEdixText,dateEditText;
-    TextView nameProfileTextView, helloUser, logOutButton;
+    EditText email, address,phoneNumber,nameEditTextActivity,genderEdixText,dateEditText,helloUser;
+    TextView nameProfileTextView, logOutButton;
     Button update_Profile_Button;
 
     private AlertDialog alertDialog;
@@ -74,6 +74,7 @@ public class UserInforActivity extends AppCompatActivity {
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("shop_email", shopEmail);
+            Log.d("dataGetInfor", jsonBody.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -91,7 +92,7 @@ public class UserInforActivity extends AppCompatActivity {
                                 phoneNumber.setText(metadata.getString("shop_phoneNumber"));
                                 address.setText(metadata.getString("shop_address"));
                                 email.setText(shopEmail);
-                                helloUser.setText("Hi " + metadata.getString("shop_lastName"));
+                                helloUser.setText("Hello " + metadata.getString("shop_lastName"));
                             }
                             else{
                                 Log.d("Error", "Erro when try get Information of user");
@@ -180,6 +181,9 @@ public class UserInforActivity extends AppCompatActivity {
                     jsonBody.put("shop_phoneNumber", phoneNumber.getText());
                     jsonBody.put("shop_email",shopEmail);
                     jsonBody.put("shop_address", address.getText());
+                    String userLastNameChange = helloUser.getText().toString().substring(6);
+
+                    jsonBody.put("shop_lastName", userLastNameChange);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

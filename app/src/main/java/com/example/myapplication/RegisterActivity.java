@@ -54,14 +54,15 @@ public class RegisterActivity extends AppCompatActivity {
                 // Data request
                 JSONObject jsonBody = new JSONObject();
                 try {
-                    jsonBody.put("firstName","");
-                    jsonBody.put("lastName","");
+                    jsonBody.put("firstName","-");
+                    jsonBody.put("lastName","-");
                     jsonBody.put("userName", username.getText().toString());
                     jsonBody.put("email", email.getText().toString());
                     jsonBody.put("phoneNumber", phonenumber.getText().toString());
                     jsonBody.put("password", password.getText().toString());
-                    jsonBody.put("address", " ");
-                    jsonBody.put("birtDay", " ");
+                    jsonBody.put("address", "-");
+//                    jsonBody.put("birtDay", "0/00/0000");
+
                 } catch (JSONException e) {
                     // Check error of JSONObject
                     Log.d("error","JSONObject Error");

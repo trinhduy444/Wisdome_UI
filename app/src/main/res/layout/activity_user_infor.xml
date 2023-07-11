@@ -21,7 +21,8 @@
       android:src="@drawable/avatar_user_settinh"
       tools:ignore="ImageContrastCheck" />
 
-  <TextView
+
+  <EditText
       android:id="@+id/nameProfile"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
