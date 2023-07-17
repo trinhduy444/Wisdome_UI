@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.model.ENV;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,8 +66,13 @@ public class UserInforActivity extends AppCompatActivity {
 
 
         // Link API
-        String url = "https://delivery-9thd.onrender.com/api/v1/user/getInfor";
-        String urlLogOut = "https://delivery-9thd.onrender.com/api/v1/auth/logout";
+        String endpointGetInfo = "user/getInfor";
+        String url = ENV.URL_BASE + endpointGetInfo;
+
+        String endpointLogout = "auth/logout";
+        String urlLogOut =ENV.URL_BASE + endpointLogout;
+//        String url = "https://delivery-9thd.onrender.com/api/v1/user/getInfor";
+//        String urlLogOut = "https://delivery-9thd.onrender.com/api/v1/auth/logout";
 
         // Queue Request
         RequestQueue queue = Volley.newRequestQueue(UserInforActivity.this);

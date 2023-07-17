@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.model.ENV;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +51,10 @@ public class RegisterActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
 
                 // Link API
-                String url = "https://delivery-9thd.onrender.com/api/v1/auth/signUpUser";
+                String endpoint = "auth/signUpUser";
+                String url = ENV.URL_BASE + endpoint;
+
+                //String url = "https://delivery-9thd.onrender.com/api/v1/auth/signUpUser";
                 // Data request
                 JSONObject jsonBody = new JSONObject();
                 try {

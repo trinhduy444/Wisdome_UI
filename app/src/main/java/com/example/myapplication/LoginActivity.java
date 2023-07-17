@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.model.ENV;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,8 +45,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
 
-                String url = "https://delivery-9thd.onrender.com/api/v1/auth/login";
-//                String url = "http://192.168.0.6:5000/api/v1/auth/login";
+//                String url = "https://delivery-9thd.onrender.com/api/v1/auth/login";
+                String endpoint = "auth/login";
+                String url = ENV.URL_BASE + endpoint;
                 JSONObject jsonBody = new JSONObject();
                 try {
                     jsonBody.put("email", et_userName.getText().toString());
