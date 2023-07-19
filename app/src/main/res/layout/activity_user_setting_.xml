@@ -56,7 +56,7 @@
 
 
                 <Button
-                    android:id="@+id/dangky"
+                    android:id="@+id/editprofile"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
@@ -344,15 +344,21 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom"
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"-->
+<!--        tools:ignore="VisualLintBottomNav"-->
+<!--        app:menu="@menu/menu_taskbar"/>-->
+
+    <include
+        layout="@layout/toolbar_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        tools:ignore="VisualLintBottomNav"
-        app:menu="@menu/menu_taskbar"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

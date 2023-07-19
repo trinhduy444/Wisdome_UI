@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,13 +27,15 @@ public class UserSettingActivity extends AppCompatActivity {
 
     Button userProfile;
 
+    RelativeLayout showHomeButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_setting_);
 
         // route to user Information
-        userProfile = findViewById(R.id.dangky);
+        userProfile = findViewById(R.id.editprofile);
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +45,18 @@ public class UserSettingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Direct to Home
+        showHomeButton = findViewById(R.id.showHome);
+        showHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserSettingActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
