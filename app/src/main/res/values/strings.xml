@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
+
     <string name="facebook_app_id">1234</string>
     <string name="fb_login_protocol_scheme">fb1234</string>
     <string name="title_activity_delivery">DeliveryActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+
     <string name="previous">Previous</string>
     <string name="logout">Logout</string>
 
@@ -61,4 +61,33 @@
     <string name="icon_description">Go back</string>
     <string name="add_card_title">* Your card information will be kept safe</string>
     <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</string>
+    <string name="app_name">Welcome Page</string>
+    <string name="welcome">Welcome</string>
+    <string name="get_started">Get Started</string>
+    <string name="have_an_account"><u>I already have an account</u></string>
+    <string name="wisdom_delivery"><u>wisdom</u> delivery</string>
+    <string name="login_to_account">Login to your account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="not_have_account">Don\'t have account? </string>
+
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save">Save</string>
+    <string name="motorcycle_brand">Motorcycle brand</string>
+    <string name="license_plate">License plates</string>
+    <string name="onboarding_description">Take two sides of your citizen ID and a full face photo</string>
+    <string name="next">Next</string>
+    <string name="front_id_card_photo">Take a photo of the front of the citizen\'s identity card</string>
+    <string name="back_id_card_photo">Take a photo of the back of your ID card</string>
+    <string name="full_face_photo">Take a picture of your full face</string>
+    <string name="start">Start</string>
 </resources>
