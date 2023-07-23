@@ -104,6 +104,7 @@ public class HomeActivity extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
         queue.getCache().clear();
+
         // Direct to Setting layout
         showUserSettingButton = findViewById(R.id.showUserSetting);
         showUserSettingButton.setOnClickListener(new View.OnClickListener() {

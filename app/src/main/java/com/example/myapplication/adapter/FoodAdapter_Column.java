@@ -21,7 +21,6 @@ public class FoodAdapter_Column extends RecyclerView.Adapter<FoodAdapter_Column.
     Context context;
     List<Food> foodList;
 
-
     public FoodAdapter_Column(Context context, List<Food> foodList) {
         this.context = context;
         this.foodList = foodList;

@@ -61,14 +61,12 @@ public class LoginActivity extends AppCompatActivity {
                             public void onResponse(JSONObject response) {
                                 try {
                                     if(response.get("statusCode").equals(200)){
-
                                         Log.d("response","Login Page: Loging Success");
 //                                        Log.d("response","Login Page: Loging Success"+response.toString());
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent.putExtra("data", response.toString());
                                         Log.d("data","data in Login" + response.toString());
                                         startActivity(intent);
-
                                     }
                                     else{
                                         Log.d("response",response.get("message").toString());
