@@ -11,8 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.myapplication.adapter.FoodAdapter_Column;
 import com.example.myapplication.model.ENV;
 import com.example.myapplication.model.Food;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,89 +36,60 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PromoActivity extends AppCompatActivity {
+public class SuccessActivity extends AppCompatActivity {
+
+    FrameLayout sheet;
+    TextView textView_seeAll,textView_continueBuy;
 
     RecyclerView foodRecycler;
     FoodAdapter_Column foodAdapter;
     List<Food> tempFoodlist;
-    TextView textView_count,textView_price,textView5;
-    LinearLayout lnCheckout;
-
-    SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals("shoppingCart")) {
-                String shoppingCart = sharedPreferences.getString("shoppingCart", "");
-                handleCheckoutBar(shoppingCart);
-                Log.e("text listen","run");
-            }
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_promo);
-        lnCheckout = findViewById(R.id.lnCheckout);
-        textView_count = findViewById(R.id.textViewCheckout_count);
-        textView_price = findViewById(R.id.textViewCheckout_price);
-        textView5 = findViewById(R.id.textView5);
+        setContentView(R.layout.activity_success);
 
-        Log.e("activity listen","on create");
-        // button event ------------------------------------------------
-        // Back to previous page
-        ImageView backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
+        textView_seeAll = findViewById(R.id.textView_seeAll);
+        textView_continueBuy = findViewById(R.id.textView_continueBuy);
 
-        //
-        lnCheckout.setOnClickListener(new View.OnClickListener() {
+        sheet = findViewById(R.id.sheet);
+        BottomSheetBehavior<FrameLayout> bottomSheetBehavior = BottomSheetBehavior.from(sheet);
+        bottomSheetBehavior.setPeekHeight(140);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+        // navigation event
+        textView_seeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PromoActivity.this, CartActivity.class);
+                Intent intent = new Intent(SuccessActivity.this, PromoActivity.class);
                 startActivity(intent);
             }
         });
 
-        textView5.setOnClickListener(new View.OnClickListener() {
+        textView_continueBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PromoActivity.this, DetailRestroActivity.class);
+                Intent intent = new Intent(SuccessActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("activity promo","on Resume");
+        Log.e("activity detail","on Resume");
 
         // Show Food in home page
-        RequestQueue queue = Volley.newRequestQueue(PromoActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(SuccessActivity.this);
 
         // request
         JsonObjectRequest jsonObjectRequest = requestFood();
         queue.add(jsonObjectRequest); // call food => show food
         queue.getCache().clear();
 
-        // listen - checkout-------------
-        SharedPreferences sharedPreferences = getSharedPreferences("my_sharedPreference", Context.MODE_PRIVATE);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // unListen - checkout-------------
-        Log.e("activity promo","on Pause");
-        SharedPreferences sharedPreferences = getSharedPreferences("my_sharedPreference", Context.MODE_PRIVATE);
-        sharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
 
     private void setFoodRecycler(List<Food> foodList){
@@ -127,61 +98,6 @@ public class PromoActivity extends AppCompatActivity {
         foodRecycler.setLayoutManager(layoutManager);
         foodAdapter = new FoodAdapter_Column(this, foodList);
         foodRecycler.setAdapter(foodAdapter);
-    }
-    private void handleCheckoutBar(@NonNull String shoppingCart){
-        if(!shoppingCart.equals("Cart dosen't exist")){
-            try {
-                // get food cart
-                JSONObject obj = new JSONObject(shoppingCart);
-                JSONArray array = obj.getJSONArray("shopingCart_foods");
-
-                //
-                int countFood = 0;
-                int sumPrice = 0;
-
-                // loop cart
-                for (int i = 0; i < array.length(); i++) {
-                    // food in cart
-                    JSONObject foodObject = array.getJSONObject(i);
-                    String idFood = foodObject.getString("cart_foodId");
-                    int quantity = foodObject.getInt("quantity");
-                    countFood += quantity;
-
-                    // loop temp data ==> find price food
-                    for(Food fd : tempFoodlist){
-                        if(idFood.equals(fd.getFoodId())){
-                            sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
-                            break;
-                        }
-                    }
-                }
-
-                // logic checkout bar
-                // show
-                if(countFood != 0){
-                    showCheckoutBar(countFood,sumPrice);
-                }
-                // hidden
-                if(countFood == 0){
-                    hiddenCheckoutBar();
-                }
-
-            } catch (Exception ex) {
-                Log.e("promo activity", ex.toString());
-            }
-        }
-    }
-    private void showCheckoutBar(int countFood, int sumPrice){
-        // show bar
-        lnCheckout.setVisibility(View.VISIBLE);
-        // render count and price
-        textView_price.setText(Integer.toString(sumPrice )+ " vnd");
-        textView_count.setText(Integer.toString(countFood )+ " Item");
-
-    }
-    private void hiddenCheckoutBar(){
-        // hidden bar
-        lnCheckout.setVisibility(View.INVISIBLE);
     }
 
     @NonNull
@@ -221,7 +137,7 @@ public class PromoActivity extends AppCompatActivity {
                                 tempFoodlist = foodList;
 
                                 // call cart - checkout
-                                RequestQueue queue = Volley.newRequestQueue(PromoActivity.this);
+                                RequestQueue queue = Volley.newRequestQueue(SuccessActivity.this);
                                 // call cart => show checkout, cart save 2 shared preference key = shoppingCart
                                 JsonObjectRequest jsonObjectRequest1 = requestCart();
                                 queue.add(jsonObjectRequest1);
@@ -229,7 +145,7 @@ public class PromoActivity extends AppCompatActivity {
 
                             } else {
                                 Log.d("response", response.get("message").toString());
-                                Toast.makeText(PromoActivity.this, "Fail to Load Food", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SuccessActivity.this, "Fail to Load Food", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             Log.d("error", "Get foods Fail");
@@ -241,12 +157,11 @@ public class PromoActivity extends AppCompatActivity {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Log.d("Error", error.toString());
-                                Toast.makeText(PromoActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SuccessActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                             }
                         });
         return jsonObjectRequest;
     }
-
     @NonNull
     private JsonObjectRequest requestCart(){
         // url
@@ -282,50 +197,10 @@ public class PromoActivity extends AppCompatActivity {
 
                         // Set up the RecyclerView with the foodList
                         setFoodRecycler(tempFoodlist);
-
-                        /***
-                         * checkout - logic
-                         */
-                        if(!shoppingCart.equals("Cart dosen't exist")){
-                                // get food cart
-                                JSONObject obj = response.getJSONObject("metadata");
-                                JSONArray array = obj.getJSONArray("shopingCart_foods");
-
-                                //
-                                int countFood = 0;
-                                int sumPrice = 0;
-
-                                // loop cart
-                                for (int i = 0; i < array.length(); i++) {
-                                    // food in cart
-                                    JSONObject foodObject = array.getJSONObject(i);
-                                    String idFood = foodObject.getString("cart_foodId");
-                                    int quantity = foodObject.getInt("quantity");
-                                    countFood += quantity;
-
-                                    // loop temp data ==> find price food
-                                    for(Food fd : tempFoodlist){
-                                        if(idFood.equals(fd.getFoodId())){
-                                            sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
-                                            break;
-                                        }
-                                    }
-                                }
-
-                                // logic checkout bar
-                                // show
-                                if(countFood != 0){
-                                    showCheckoutBar(countFood,sumPrice);
-                                }
-                                // hidden
-                                if(countFood == 0){
-                                    hiddenCheckoutBar();
-                                }
-                        }
                     }
                     else{
                         Log.d("response",response.get("message").toString());
-                        Toast.makeText(PromoActivity.this,"Login Fail", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SuccessActivity.this,"Login Fail", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -335,7 +210,7 @@ public class PromoActivity extends AppCompatActivity {
             @Override // failed
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", error.toString());
-                Toast.makeText(PromoActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SuccessActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {
             /**

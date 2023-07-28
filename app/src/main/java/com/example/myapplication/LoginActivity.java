@@ -3,9 +3,11 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,12 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                 String endpoint = "auth/login";
                 String url = ENV.URL_BASE + endpoint;
                 JSONObject jsonBody = new JSONObject();
+
                 try {
                     jsonBody.put("email", et_userName.getText().toString());
                     jsonBody.put("password", et_passWord.getText().toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                         (Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
                             @Override
@@ -63,6 +67,27 @@ public class LoginActivity extends AppCompatActivity {
                                     if(response.get("statusCode").equals(200)){
                                         Log.d("response","Login Page: Loging Success");
 //                                        Log.d("response","Login Page: Loging Success"+response.toString());
+
+                                        ///////////////
+
+                                        // get access token
+                                        JSONObject metadata = response.getJSONObject("metadata");
+                                        String acToken = metadata.getString("accessToken");
+                                        Log.d("access token :",acToken);
+
+                                        // get refresh token
+                                        String rfToken = metadata.getString("refreshToken");
+                                        Log.d("refresh token :",rfToken);
+
+                                        // use shared preference - mob private
+                                        SharedPreferences sharedPreferences =
+                                                getSharedPreferences("my_sharedPreference",MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                                        edit.putString("accessToken",acToken);
+                                        edit.putString("refreshToken",rfToken);
+                                        edit.apply();
+
+                                        /////////////
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent.putExtra("data", response.toString());
                                         Log.d("data","data in Login" + response.toString());
@@ -89,6 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                 queue.getCache().clear();
             }
         });
+
+
         btnRegisters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

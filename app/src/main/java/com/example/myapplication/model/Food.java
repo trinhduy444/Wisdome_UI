@@ -1,7 +1,7 @@
 package com.example.myapplication.model;
 
 public class Food {
-
+    String foodId;
     String foodName;
     String foodDescription;
     String foodOriginalPrice;
@@ -17,6 +17,15 @@ public class Food {
         this.foodAmount = foodAmount;
         this.foodImage = foodImage;
     }
+
+    public String getFoodId(){
+        return this.foodId;
+    }
+
+    public void setFoodId(String foodId){
+        this.foodId = foodId;
+    }
+
     public String getFoodName() {
         return foodName;
     }

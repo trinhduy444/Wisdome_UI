@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    tools:ignore="HardcodedText"
+    tools:context=".SuccessActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/bg_delivery"
+            android:layout_marginTop="15dp"
+            android:layout_width="332dp"
+            android:layout_height="332dp"
+            android:background="@drawable/bg_delivery"
+            android:layout_gravity="center|top"
+            android:contentDescription="bgDelivery" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Your order is confirmed!"
+            android:textColor="#3E4462"
+            android:textSize="24sp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:paddingHorizontal="40dp"
+            android:includeFontPadding="false"
+            android:text="we'll deliver your order immediately, make sure your order put on the doorstep"
+            android:textColor="#7E7E7E"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView_continueBuy"
+            android:layout_width="221dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/custom_buttom"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="continue to buy"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/sheet"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@color/white"
+        android:padding="14dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:contentDescription="line_more"
+                android:scaleType="centerCrop"
+                android:src="@drawable/line_more"
+                tools:ignore="ImageContrastCheck" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Anything else?"
+                    android:textColor="#3E4462"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/textView_seeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="See all"
+                    android:textColor="#E84C4F"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf="@+id/lnLayout1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/foodColumn"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="15dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                tools:itemCount="5"
+                tools:listitem="@layout/food_column_item" />
+
+        </LinearLayout>
+    </FrameLayout>
+    
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical"
+    tools:ignore="ExtraText,HardcodedText"
+    tools:context=".CartActivity">
+
+    // title
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/left_24px"
+            android:contentDescription="buttonBack"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:text="Checkout"
+            android:textColor="#3E4462"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    // content
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            // card 1
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                android:layout_margin="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keep social distancing"
+                        android:textColor="#3E4462"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:includeFontPadding="false"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:includeFontPadding="false"
+                        android:text="Leave your order on the doorstep"
+                        android:textColor="#7E7E7E"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            // card 2
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                android:layout_marginHorizontal="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deliver to"
+                        android:textColor="#3E4462"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:includeFontPadding="false"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:includeFontPadding="false"
+                        android:text="174 NTMK HCM city"
+                        android:textColor="#7E7E7E"
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:background="#F2F5F8"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            app:drawableStartCompat="@drawable/xmlid"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:hint="Add a note of delivery address"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:minHeight="48dp"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            // card 3 item list
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="8dp"
+                android:layout_margin="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="My Bucket"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="22sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="+  Add items"
+                            android:textColor="#E84C4F"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/foodColumn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/food_column_item" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            // cart 4 total
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment "
+                        android:textColor="#3E4462"
+                        android:layout_marginBottom="14dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:includeFontPadding="false"
+                        android:textSize="22sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="Item total"
+                            android:textColor="#3E4462"
+                            android:textSize="16sp"
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/textView_itemTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="18.500 vnd"
+                            android:textColor="#3E4462"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="Delivery free"
+                            android:textColor="#3E4462"
+                            android:textSize="16sp"
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/textView_deliveryFree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="0 vnd"
+                            android:textColor="#3E4462"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/line_divider" />
+
+                    <LinearLayout
+                        android:layout_marginTop="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:includeFontPadding="false"
+                            android:text="To Pay"
+                            android:textColor="#3E4462"
+                            android:textSize="18sp"
+
+                            tools:ignore="TextContrastCheck" />
+
+                        <TextView
+                            android:id="@+id/textView_toPay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:includeFontPadding="false"
+                            android:text="18.500 vnd"
+                            android:textColor="#3E4462"
+                            android:textSize="18sp"
+                            tools:ignore="TextContrastCheck" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    // button place order
+    <LinearLayout
+        android:id="@+id/lnCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="@drawable/custom_buttom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:gravity="start"
+                android:padding="5dp"
+                android:text="Place order"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textView_placeOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="18.500 vnd"
+                android:textColor="@color/white"
+                tools:ignore="TextContrastCheck" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

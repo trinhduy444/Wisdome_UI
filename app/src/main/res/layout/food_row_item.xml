@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/foodImage"
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="323dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
