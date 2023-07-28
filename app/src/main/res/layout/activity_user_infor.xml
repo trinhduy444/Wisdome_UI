@@ -1,379 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/background"
     tools:context=".UserInforActivity">
 
- <include layout="@layout/toolbar_user_infor" />
-
- <LinearLayout
+ <ImageView
+     android:id="@+id/imageView2"
      android:layout_width="match_parent"
-     android:layout_height="162dp"
-     android:gravity="center"
-     android:orientation="vertical"
-     android:paddingTop="15dp">
-
-  <com.mikhaellopez.circularimageview.CircularImageView
-      android:layout_width="86dp"
-      android:layout_height="83dp"
-      android:src="@drawable/avatar_user_settinh"
-      tools:ignore="ImageContrastCheck" />
+     android:layout_height="92dp"
+     android:scaleType="fitXY"
+     android:src="@drawable/header"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
 
 
-  <EditText
-      android:id="@+id/nameProfile"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:text="@string/hi_my_profile"
-      android:textColor="@android:color/holo_red_dark"
-      android:textSize="20sp"
-      android:textStyle="bold"
-      tools:ignore="TextSizeCheck" />
+ <ImageView
+     android:id="@+id/imageView3"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="40dp"
+     android:src="@drawable/avatar"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
 
-  <View
+ <TextView
+     android:id="@+id/nameProfile"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:fontFamily="@font/poppins_regular"
+     android:text="@string/user_name"
+     android:textSize="15sp"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+     android:layout_marginTop="32dp"
+     android:layout_marginBottom="24dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/nameProfile">
+
+  <LinearLayout
+      android:id="@+id/linearLayout2"
       android:layout_width="match_parent"
-      android:layout_height="3dp"
-      android:layout_marginTop="10dp"
-      android:background="@color/black" />
-
-
- </LinearLayout>
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
-
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_person"
-      tools:ignore="ContentDescription,HardcodedText" />
-
-  <TextView
-      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="User Name"
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-  <EditText
-      android:id="@+id/nameEditText"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:maxLines="1"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:text="@string/name"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:id="@+id/nameEditText"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:fontFamily="@font/poppins_medium"
+       android:gravity="center_vertical"
+       android:hint="@string/user_name"
+       android:paddingHorizontal="17dp"
+       android:textColor="@color/black" />
 
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="10dp"
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/gender"
+       android:textColor="@color/shadow" />
 
+   <RadioGroup
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginHorizontal="40dp"
+       android:orientation="horizontal">
 
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
+    <RadioButton
+        android:id="@+id/radioMale"
 
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_transgender"
-      tools:ignore="ContentDescription,HardcodedText" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="@string/male" />
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="Gender       "
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
+    <RadioButton
+        android:id="@+id/radioFemale"
 
-  <EditText
-      android:id="@+id/genderEditText"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="text"
-      android:maxLines="1"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="126dp"
+        android:text="@string/female" />
+   </RadioGroup>
 
-
- </LinearLayout>
-
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="8dp"
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
-
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_cancellation"
-      tools:ignore="ContentDescription,HardcodedText" />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="Date            "
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-  <EditText
-      android:id="@+id/dateEditText"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="date"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/date_of_birth"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:id="@+id/dateEditText"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:autofillHints="date"
+       android:background="@drawable/custom_edit_text"
+       android:drawableStart="@drawable/ic_calendar"
+       android:elevation="7dp"
+       android:inputType="date"
+       android:paddingHorizontal="17dp" />
 
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="10dp"
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
-
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_local_phone"
-      tools:ignore="ContentDescription,HardcodedText" />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="Phone         "
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-  <EditText
-      android:id="@+id/phoneEditText"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="phone"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/address"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:id="@+id/address_editText"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:paddingHorizontal="17dp" />
 
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="10dp"
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
-
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_email"
-      tools:ignore="ContentDescription,HardcodedText" />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="Email           "
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-  <EditText
-      android:id="@+id/emailEditText"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="textEmailAddress"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/phone_number"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:id="@+id/phoneEditText"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:fontFamily="@font/poppins_medium"
+       android:inputType="number"
+       android:paddingHorizontal="17dp"
+       android:textSize="16sp" />
 
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="10dp"
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="40dp"
-     android:layout_marginTop="15dp"
-     android:gravity="center_vertical"
-     android:orientation="horizontal"
-     android:paddingLeft="15dp"
-     android:paddingRight="15dp">
-
-  <ImageView
-      android:layout_width="25dp"
-      android:layout_height="25dp"
-      android:contentDescription="TODO"
-      android:src="@drawable/icon_fmd_good"
-      tools:ignore="ContentDescription,HardcodedText" />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:text="Address       "
-      android:textColor="@color/black"
-      android:textSize="18dp"
-      android:textStyle="bold"
-      tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-  <EditText
-      android:id="@+id/address_editText"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
-      android:layout_weight="1"
-      android:autofillHints=""
-      android:ems="10"
-      android:inputType="textMultiLine"
-      android:text=""
-      android:textSize="20sp"
-      android:textStyle="normal"
-      tools:ignore="DuplicateIds,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/email"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:id="@+id/emailEditText"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:fontFamily="@font/poppins_medium"
+       android:gravity="center_vertical"
+       android:inputType="textEmailAddress"
+       android:paddingHorizontal="17dp"
+       android:textColor="@color/black" />
 
- <View
-     android:layout_width="match_parent"
-     android:layout_height="1dp"
-     android:layout_marginLeft="15dp"
-     android:layout_marginTop="10dp"
-
-     android:layout_marginRight="15dp"
-     android:background="@android:color/black" />
-
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="77dp"
-     android:layout_marginTop="10dp"
-     android:gravity="center"
-     android:orientation="horizontal"
-     tools:ignore="UselessLeaf">
-
-
-  <Button
-      android:id="@+id/update_Profile"
-      android:layout_width="125dp"
-      android:layout_height="48dp"
-      android:layout_gravity="center"
-      android:layout_marginStart="20dp"
-      android:layout_marginTop="2dp"
-      android:background="@drawable/gray_transparent_button"
-      android:text="@string/update"
-      android:textColor="#880E4F"
-      android:textStyle="bold" />
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/motorcycle_brand"
+       android:textColor="@color/shadow" />
 
 
- </LinearLayout>
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:fontFamily="@font/poppins_medium"
+       android:gravity="center_vertical"
+       android:paddingHorizontal="17dp"
+       android:textColor="@color/black" />
 
-</LinearLayout>
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginTop="20dp"
+       android:text="@string/license_plate"
+       android:textColor="@color/shadow" />
+
+
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginBottom="40dp"
+       android:background="@drawable/custom_edit_text"
+       android:elevation="7dp"
+       android:fontFamily="@font/poppins_medium"
+       android:gravity="center_vertical"
+       android:paddingHorizontal="17dp"
+       android:textColor="@color/black" />
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:id="@+id/update_Profile"
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:layout_marginHorizontal="40dp"
+       android:layout_marginBottom="24dp"
+       android:background="@drawable/custom_button"
+       android:elevation="20dp"
+       android:fontFamily="@font/poppins_bold"
+       android:text="@string/save"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+  </LinearLayout>
+ </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
