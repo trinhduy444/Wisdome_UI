@@ -36,12 +36,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PromoActivity extends AppCompatActivity {
+public class DetailRestroActivity extends AppCompatActivity {
 
     RecyclerView foodRecycler;
     FoodAdapter_Column foodAdapter;
     List<Food> tempFoodlist;
-    TextView textView_count,textView_price,textView5;
+    TextView textView_count,textView_price;
     LinearLayout lnCheckout;
 
     SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
@@ -58,13 +58,11 @@ public class PromoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_promo);
+        setContentView(R.layout.activity_detail_restro);
         lnCheckout = findViewById(R.id.lnCheckout);
         textView_count = findViewById(R.id.textViewCheckout_count);
         textView_price = findViewById(R.id.textViewCheckout_price);
-        textView5 = findViewById(R.id.textView5);
 
-        Log.e("activity listen","on create");
         // button event ------------------------------------------------
         // Back to previous page
         ImageView backButton = findViewById(R.id.backButton);
@@ -76,19 +74,11 @@ public class PromoActivity extends AppCompatActivity {
             }
         });
 
-        //
+        // Go to cart
         lnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PromoActivity.this, CartActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        textView5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PromoActivity.this, DetailRestroActivity.class);
+                Intent intent = new Intent(DetailRestroActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });
@@ -97,10 +87,10 @@ public class PromoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("activity promo","on Resume");
+        Log.e("activity detail","on Resume");
 
         // Show Food in home page
-        RequestQueue queue = Volley.newRequestQueue(PromoActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(DetailRestroActivity.this);
 
         // request
         JsonObjectRequest jsonObjectRequest = requestFood();
@@ -116,7 +106,7 @@ public class PromoActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         // unListen - checkout-------------
-        Log.e("activity promo","on Pause");
+        Log.e("activity detail","on Pause");
         SharedPreferences sharedPreferences = getSharedPreferences("my_sharedPreference", Context.MODE_PRIVATE);
         sharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
@@ -181,7 +171,7 @@ public class PromoActivity extends AppCompatActivity {
     }
     private void hiddenCheckoutBar(){
         // hidden bar
-        lnCheckout.setVisibility(View.INVISIBLE);
+        lnCheckout.setVisibility(View.GONE);
     }
 
     @NonNull
@@ -221,7 +211,7 @@ public class PromoActivity extends AppCompatActivity {
                                 tempFoodlist = foodList;
 
                                 // call cart - checkout
-                                RequestQueue queue = Volley.newRequestQueue(PromoActivity.this);
+                                RequestQueue queue = Volley.newRequestQueue(DetailRestroActivity.this);
                                 // call cart => show checkout, cart save 2 shared preference key = shoppingCart
                                 JsonObjectRequest jsonObjectRequest1 = requestCart();
                                 queue.add(jsonObjectRequest1);
@@ -229,7 +219,7 @@ public class PromoActivity extends AppCompatActivity {
 
                             } else {
                                 Log.d("response", response.get("message").toString());
-                                Toast.makeText(PromoActivity.this, "Fail to Load Food", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DetailRestroActivity.this, "Fail to Load Food", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             Log.d("error", "Get foods Fail");
@@ -241,12 +231,11 @@ public class PromoActivity extends AppCompatActivity {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Log.d("Error", error.toString());
-                                Toast.makeText(PromoActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(DetailRestroActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                             }
                         });
         return jsonObjectRequest;
     }
-
     @NonNull
     private JsonObjectRequest requestCart(){
         // url
@@ -287,45 +276,45 @@ public class PromoActivity extends AppCompatActivity {
                          * checkout - logic
                          */
                         if(!shoppingCart.equals("Cart dosen't exist")){
-                                // get food cart
-                                JSONObject obj = response.getJSONObject("metadata");
-                                JSONArray array = obj.getJSONArray("shopingCart_foods");
+                            // get food cart
+                            JSONObject obj = response.getJSONObject("metadata");
+                            JSONArray array = obj.getJSONArray("shopingCart_foods");
 
-                                //
-                                int countFood = 0;
-                                int sumPrice = 0;
+                            //
+                            int countFood = 0;
+                            int sumPrice = 0;
 
-                                // loop cart
-                                for (int i = 0; i < array.length(); i++) {
-                                    // food in cart
-                                    JSONObject foodObject = array.getJSONObject(i);
-                                    String idFood = foodObject.getString("cart_foodId");
-                                    int quantity = foodObject.getInt("quantity");
-                                    countFood += quantity;
+                            // loop cart
+                            for (int i = 0; i < array.length(); i++) {
+                                // food in cart
+                                JSONObject foodObject = array.getJSONObject(i);
+                                String idFood = foodObject.getString("cart_foodId");
+                                int quantity = foodObject.getInt("quantity");
+                                countFood += quantity;
 
-                                    // loop temp data ==> find price food
-                                    for(Food fd : tempFoodlist){
-                                        if(idFood.equals(fd.getFoodId())){
-                                            sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
-                                            break;
-                                        }
+                                // loop temp data ==> find price food
+                                for(Food fd : tempFoodlist){
+                                    if(idFood.equals(fd.getFoodId())){
+                                        sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
+                                        break;
                                     }
                                 }
+                            }
 
-                                // logic checkout bar
-                                // show
-                                if(countFood != 0){
-                                    showCheckoutBar(countFood,sumPrice);
-                                }
-                                // hidden
-                                if(countFood == 0){
-                                    hiddenCheckoutBar();
-                                }
+                            // logic checkout bar
+                            // show
+                            if(countFood != 0){
+                                showCheckoutBar(countFood,sumPrice);
+                            }
+                            // hidden
+                            if(countFood == 0){
+                                hiddenCheckoutBar();
+                            }
                         }
                     }
                     else{
                         Log.d("response",response.get("message").toString());
-                        Toast.makeText(PromoActivity.this,"Login Fail", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailRestroActivity.this,"Login Fail", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -335,7 +324,7 @@ public class PromoActivity extends AppCompatActivity {
             @Override // failed
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", error.toString());
-                Toast.makeText(PromoActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailRestroActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {
             /**
@@ -353,4 +342,5 @@ public class PromoActivity extends AppCompatActivity {
 
         return jsonObjectRequest;
     }
+
 }

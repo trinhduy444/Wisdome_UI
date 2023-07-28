@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF4F4"
+    android:background="@drawable/bg_screen"
     tools:context=".PaymentMethodActivity">
 
     <View
@@ -77,7 +77,7 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/design_default_color_error"
+        android:backgroundTint="#E84C4F"
         android:text="select"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,14 +197,15 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment Method"
-        android:textColor="#b00020"
+        android:textColor="#3E4462"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton3"

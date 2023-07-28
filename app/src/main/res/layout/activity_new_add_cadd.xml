@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical"
+    tools:context=".NewAddCardActivity"
+    tools:ignore="HardcodedText,ExtraText">
+
+    // title
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/addCard_btnBack"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:srcCompat="@mipmap/back_back_foreground"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="btnBack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Add card"
+            android:gravity="center"
+            android:textColor="#3E4462"
+            android:fontFamily="@font/poppins_semibold"
+            android:includeFontPadding="false"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        // note
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="* Your card information will be kept safe"
+            android:textColor="#7E7E7E"
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck" />
+
+        // input
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    app:drawableStartCompat="@drawable/card"/>
+
+                <EditText
+                    android:layout_marginTop="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="Card Number"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_medium"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        // content
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"
+            android:textColor="#3E4462"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+
+    // button
+
+    <TextView
+        android:id="@+id/btn_success"
+        android:layout_width="221dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="14dp"
+        android:background="@drawable/custom_buttom"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="continue"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        tools:ignore="TextContrastCheck" />
+
+</LinearLayout>

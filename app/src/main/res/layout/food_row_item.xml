@@ -18,8 +18,10 @@
 
         <ImageView
             android:id="@+id/foodImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="323dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/assorted_sliced_fruits_in_white_ceramic_bowl_10927301" />
@@ -64,13 +66,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="137dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Fruit salad mix"
                     android:textColor="#3E4462"
                     app:layout_constraintBottom_toTopOf="@+id/foodDescription"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,25 +104,25 @@
                     android:textColor="#3E4462"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/foodOriginalPrice"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/foodDescription" />
+                    app:layout_constraintTop_toBottomOf="@+id/foodDescription"
+                    app:layout_constraintVertical_bias="0.473" />
 
                 <TextView
                     android:id="@+id/foodOriginalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="11dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/poppins"
                     android:foreground="@drawable/strikethrough"
                     android:includeFontPadding="false"
                     android:text="22.500"
                     android:textColor="#CACACA"
                     android:textSize="10sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/foodDiscountedPrice"
-                    app:layout_constraintEnd_toStartOf="@+id/foodAmount"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/foodDiscountedPrice"
-                    app:layout_constraintTop_toTopOf="@+id/foodDiscountedPrice" />
+                    app:layout_constraintTop_toBottomOf="@+id/foodDescription"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/foodAmount"
@@ -129,16 +132,18 @@
                     android:layout_marginTop="65dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:includeFontPadding="false"
                     android:background="@drawable/bg_food_amount"
                     android:fontFamily="@font/poppins"
+                    android:includeFontPadding="false"
                     android:text="5 left"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/foodOriginalPrice"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.914"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.894" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

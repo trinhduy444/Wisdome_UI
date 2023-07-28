@@ -40,9 +40,8 @@ public class HomeActivity extends AppCompatActivity {
 
     RecyclerView foodRecycler;
     FoodAdapter_Row foodAdapter;
-    RelativeLayout showUserSettingButton,showHomeButton;
+    RelativeLayout showUserSettingButton,showHomeButton,showCartButton;
     TextView seeAllPromo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
 
         String endpoint = "shop/food?limit=10&page=1&sort=ctime";
         String url = ENV.URL_BASE + endpoint;
-//        String url = "https://delivery-9thd.onrender.com/api/v1/shop/food?limit=10&page=1&sort=ctime";
+//      String url = "https://delivery-9thd.onrender.com/api/v1/shop/food?limit=10&page=1&sort=ctime";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
@@ -68,6 +67,9 @@ public class HomeActivity extends AppCompatActivity {
                                 JSONArray metadataArray = response.getJSONArray("metadata");
                                 for (int i = 0; i < metadataArray.length(); i++) {
                                     JSONObject foodObject = metadataArray.getJSONObject(i);
+
+                                    // check id food
+                                    //Log.d("response", foodObject.getString("_id"));
 
                                     // Parse food data from JSON response
                                     String foodName = foodObject.getString("food_name");
@@ -104,6 +106,7 @@ public class HomeActivity extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
         queue.getCache().clear();
+
         // Direct to Setting layout
         showUserSettingButton = findViewById(R.id.showUserSetting);
         showUserSettingButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +127,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // set button listener
+        showCartButton = findViewById(R.id.showCartButton2);
+        showCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(ToolbarBottomActivity.this, "ok run", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setFoodRecycler(List<Food> foodList){
@@ -133,6 +146,7 @@ public class HomeActivity extends AppCompatActivity {
         foodAdapter = new FoodAdapter_Row(this, foodList);
         foodRecycler.setAdapter(foodAdapter);
     }
+
 
 
 

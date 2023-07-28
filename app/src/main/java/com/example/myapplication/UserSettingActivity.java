@@ -27,7 +27,7 @@ public class UserSettingActivity extends AppCompatActivity {
 
     Button userProfile;
 
-    RelativeLayout showHomeButton;
+    RelativeLayout showHomeButton,showCartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,16 @@ public class UserSettingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
+        // set button listener
+        showCartButton = findViewById(R.id.showCartButton2);
+        showCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(ToolbarBottomActivity.this, "ok run", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UserSettingActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

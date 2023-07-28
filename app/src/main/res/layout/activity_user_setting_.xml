@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +11,8 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:overScrollMode="never"
         android:scrollbars="vertical"
         tools:ignore="ScrollViewCount"
@@ -21,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="1dp">
-
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -86,7 +87,7 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="200dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/rewards"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -100,7 +101,7 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="260dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/membership"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -114,7 +115,7 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="320dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/introduce"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -145,7 +146,7 @@
                     android:layout_below="@+id/view2"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="427dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/offers_for_members"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -160,7 +161,7 @@
                     android:layout_below="@+id/button4"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="489dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/favourite"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -175,7 +176,7 @@
                     android:layout_below="@+id/button5"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="550dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/payment_methods"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -190,7 +191,7 @@
                     android:layout_below="@+id/view2"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="610dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/booked"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -205,7 +206,7 @@
                     android:layout_below="@+id/button4"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="670dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/saved_places"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -220,7 +221,7 @@
                     android:layout_below="@+id/button5"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="730dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/sos_contact_number"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -250,7 +251,7 @@
                     android:layout_below="@+id/view2"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="835dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/support_center"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -265,7 +266,7 @@
                     android:layout_below="@+id/button4"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="895dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/setting"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -280,7 +281,7 @@
                     android:layout_below="@+id/button5"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="955dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/share_feedback"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -310,7 +311,7 @@
                     android:layout_below="@+id/button4"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="1060dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/happy_hands"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -325,7 +326,7 @@
                     android:layout_below="@+id/button5"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="1120dp"
-                    android:gravity="left"
+                    android:gravity="center_vertical"
                     android:text="@string/drive_with_us"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -338,8 +339,13 @@
                     android:layout_width="370dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="22dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
                     android:layout_marginTop="1175dp"
-                    tools:ignore="VisualLintButtonSize" />
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    tools:ignore="VisualLintButtonSize"
+                    android:text="some thing"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
@@ -357,10 +363,9 @@
     <include
         layout="@layout/toolbar_bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:layout_height="wrap_content"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
 
 
