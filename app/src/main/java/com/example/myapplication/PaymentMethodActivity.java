@@ -25,6 +25,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(PaymentMethodActivity.this, NewAddCardActivity.class);
                 startActivity(intent);
             }
