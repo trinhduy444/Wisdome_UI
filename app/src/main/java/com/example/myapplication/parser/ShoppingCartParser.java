@@ -6,7 +6,6 @@ public class ShoppingCartParser {
     public static class CartItem {
         String cartFoodId;
         int quantity;
-
         public CartItem(String cartFoodId, int quantity) {
             this.cartFoodId = cartFoodId;
             this.quantity = quantity;
