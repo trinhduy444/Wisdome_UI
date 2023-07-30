@@ -7,8 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
     <color name="red">#E84C4F</color>
     <color name="dark_blue">#3E4462</color>
     <color name="gray">#808080</color>
+
+
+    <color name="brand_primary">#E84C4F</color>
+    <color name="text_color">#21205A</color>
+    <color name="pink">#EF9CA6</color>
+    <color name="shadow">#40000000</color>
+    <color name="background">#F8F5F2</color>
+    <color name="transparent">#00F8F5F2</color>
 </resources>

@@ -2,13 +2,17 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,58 +27,56 @@ import com.example.myapplication.model.ENV;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class UserInforActivity extends AppCompatActivity {
 
-    ImageView ReturnPreviousButton;
-    EditText email, address,phoneNumber,nameEditTextActivity,genderEdixText,dateEditText,helloUser;
-    TextView nameProfileTextView, logOutButton;
-    Button update_Profile_Button;
-
+    private EditText dateEditText,email, address,phoneNumber,userName,nameEditTextActivity,genderEdixText;
     private AlertDialog alertDialog;
+
+    private RadioButton radioButtonMale,radioButtonFemale;
+    private TextView nameProfile;
+    private Button update_Profile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_infor);
+        //Anh xa cac view
+        nameProfile = findViewById(R.id.nameProfile);
 
-        // Data receive from login page
+        radioButtonMale = findViewById(R.id.radioMale);
+        radioButtonFemale = findViewById(R.id.radioFemale);
+        dateEditText = findViewById(R.id.dateEditText);
+        email = findViewById(R.id.emailEditText);
+        address = findViewById(R.id.address_editText);
+        phoneNumber = findViewById(R.id.phoneEditText);
+        userName = findViewById(R.id.nameEditText);
+
+        update_Profile = findViewById(R.id.update_Profile);
+
+
+        //Lay accessToken de post toi info user
         String jsonDataReceive = getIntent().getStringExtra("data");
 
-        // Parameter
         String shopEmail;
         JSONObject jsonObject;
-        // Get  " shop_email " from data login page
+
         try {
             jsonObject = new JSONObject(jsonDataReceive);
             JSONObject metadata = jsonObject.getJSONObject("metadata");
             JSONObject shop = metadata.getJSONObject("shop");
-             shopEmail = shop.getString("shop_email");
+            shopEmail = shop.getString("shop_email");
         } catch (JSONException e) {
             e.printStackTrace();
             return;
         }
-        // Define Edit Text, button....
-        nameProfileTextView = findViewById(R.id.nameProfile);
-        nameEditTextActivity = findViewById(R.id.nameEditText);
-        genderEdixText = findViewById(R.id.genderEditText);
-        dateEditText = findViewById(R.id.dateEditText);
-        phoneNumber = findViewById(R.id.phoneEditText);
-        email = findViewById(R.id.emailEditText);
-        address = findViewById(R.id.address_editText);
-        helloUser = findViewById(R.id.nameProfile);
 
-
-        // Link API
+        //API
         String endpointGetInfo = "user/getInfor";
         String url = ENV.URL_BASE + endpointGetInfo;
 
-        String endpointLogout = "auth/logout";
-        String urlLogOut =ENV.URL_BASE + endpointLogout;
-//        String url = "https://delivery-9thd.onrender.com/api/v1/user/getInfor";
-//        String urlLogOut = "https://delivery-9thd.onrender.com/api/v1/auth/logout";
-
-        // Queue Request
         RequestQueue queue = Volley.newRequestQueue(UserInforActivity.this);
 
         JSONObject jsonBody = new JSONObject();
@@ -84,151 +86,135 @@ public class UserInforActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.d("jsonBody", jsonBody.toString());
-                        try {
-                            if(response.get("statusCode").equals(200)){
-                                JSONObject metadata = response.getJSONObject("metadata");
-                                nameEditTextActivity.setText(metadata.getString("shop_userName"));
-                                genderEdixText.setText(metadata.getString("shop_gerder"));
-                                dateEditText.setText(metadata.getString("shop_birtday"));
-                                phoneNumber.setText(metadata.getString("shop_phoneNumber"));
-                                address.setText(metadata.getString("shop_address"));
-                                email.setText(shopEmail);
-                                helloUser.setText("Hello " + metadata.getString("shop_lastName"));
-                            }
-                            else{
-                                Log.d("Error", "Erro when try get Information of user");
-                                return;
-                            }
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d("jsonBody", jsonBody.toString());
+                try {
+                    if(response.get("statusCode").equals(200)){
+                        JSONObject metadata = response.getJSONObject("metadata");
+                        dateEditText.setText(metadata.getString("shop_birtday"));
+                        email.setText(shopEmail);
+
+                        String gender;
+                        gender = metadata.getString("shop_gerder");
+                        if(gender.equals("1")){
+                            radioButtonMale.setChecked(true);
+                        } else if (gender.equals("0")) {
+                            radioButtonFemale.setChecked(true);
                         }
 
+                        address.setText(metadata.getString("shop_address"));
+                        phoneNumber.setText(metadata.getString("shop_phoneNumber"));
+                        userName.setText(metadata.getString("shop_userName"));
+                        nameProfile.setText(metadata.getString("shop_firstName"));
+                    }
+                }catch (JSONException e){
+                    throw new RuntimeException(e);
+                }
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error", "Erro when try get Information of user");
+                return;
+            }
+        });
+        queue.add(jsonObjectRequest);
+        queue.getCache().clear();
+
+        // Update Profile
+        update_Profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestQueue queue = Volley.newRequestQueue(UserInforActivity.this);
+
+                // API URL
+                String urlUpdate = ENV.URL_BASE + "user/updateInfor";
+
+                // Create JSON object for the request body
+                JSONObject jsonBody = new JSONObject();
+                try {
+                    jsonBody.put("shop_email",shopEmail);
+                    jsonBody.put("shop_userName", userName.getText().toString());
+                    if(radioButtonMale.isChecked()){
+                        jsonBody.put("shop_gerder","1");
+                    }
+                    else if(radioButtonFemale.isChecked()){
+                        jsonBody.put("shop_gerder","0");
+                    }
+                    jsonBody.put("shop_birtday", dateEditText.getText().toString());
+                    jsonBody.put("shop_phoneNumber", phoneNumber.getText().toString());
+                    jsonBody.put("shop_address", address.getText().toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                // Send Request Update to Server
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, urlUpdate, jsonBody, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if (response.getInt("statusCode") == 200) {
+                                Log.d("Success Update", "UPDATE SUCCESS");
+                                AlertDialog.Builder builder = new AlertDialog.Builder(UserInforActivity.this);
+                                builder.setTitle("Success");
+                                builder.setMessage("Update User Success");
+                                builder.setPositiveButton("OK", null); // You can add an OnClickListener if needed
+
+                                // Create and show the dialog
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
+
+                            } else {
+                                Toast.makeText(UserInforActivity.this, "Update Information Fail", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Error", error.toString());
+                        Toast.makeText(UserInforActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
-        // Access the RequestQueue through your singleton class.
-        queue.add(jsonObjectRequest);
-        queue.getCache().clear();
 
-
-        // Back Previous Pages
-        ReturnPreviousButton = findViewById(R.id.ReturnPrevious);
-        ReturnPreviousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
-
-        // Log out
-        logOutButton = findViewById(R.id.logOut);
-        logOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                JsonObjectRequest jsonObjectRequestLogout = new JsonObjectRequest
-                        (Request.Method.POST, urlLogOut, null, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    if(response.get("statusCode").equals(200)){
-                                       Intent intentLogOut = new Intent(UserInforActivity.this, LoginActivity.class);
-                                       startActivity(intentLogOut);
-                                    }
-                                    else{
-                                        Log.d("Server response", " Can't Log Out");
-                                        return;
-                                    }
-                                } catch (JSONException e) {
-                                    Log.d("Error", "Function Log Out error");
-                                    throw new RuntimeException(e);
-                                }
-
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Intent intentLogOut = new Intent(UserInforActivity.this, LoginActivity.class);
-                                startActivity(intentLogOut);
-                                Log.d("Error", error.toString() + "This Error of onClick of function Log Out, CHECK IT");
-                            }
-                        });
-                queue.add(jsonObjectRequestLogout);
-
-            }
-        });
-
-        // Button " UPDATE " information
-        update_Profile_Button = findViewById(R.id.update_Profile);
-        update_Profile_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                RequestQueue queue = Volley.newRequestQueue(UserInforActivity.this);
-
-                // Link API
-                String url = "https://delivery-9thd.onrender.com/api/v1/user/updateInfor";
-                JSONObject jsonBody = new JSONObject();
-                try {
-                    // Put data to Request
-                    jsonBody.put("shop_userName", nameEditTextActivity.getText());
-                    jsonBody.put("shop_gerder", genderEdixText.getText());
-                    jsonBody.put("shop_birtday", dateEditText.getText());
-                    jsonBody.put("shop_phoneNumber", phoneNumber.getText());
-                    jsonBody.put("shop_email",shopEmail);
-                    jsonBody.put("shop_address", address.getText());
-                    String userLastNameChange = helloUser.getText().toString().substring(6);
-
-                    jsonBody.put("shop_lastName", userLastNameChange);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                        (Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    if(response.get("statusCode").equals(200)){
-                                        Log.d("Success Update", "UPDATE SUCESS");
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(UserInforActivity.this);
-                                        builder.setTitle("Success");
-                                        builder.setMessage("Update User Success");
-                                        builder.setPositiveButton("OK", null); // You can add an OnClickListener if needed
-
-                                        // Create and show the dialog
-                                        alertDialog = builder.create();
-                                        alertDialog.show();
-
-                                    }
-                                    else{
-                                        Toast.makeText(UserInforActivity.this,"Update Information Fail", Toast.LENGTH_SHORT).show();
-                                    }
-                                } catch (JSONException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.d("Error", error.toString());
-                                Toast.makeText(UserInforActivity.this,error.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
                 // Access the RequestQueue through your singleton class.
                 queue.add(jsonObjectRequest);
                 queue.getCache().clear();
             }
         });
+
+    }
+
+    public void onClickPickDate(View view) {
+        dateEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+    }
+
+    private void showDatePickerDialog(){
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int selectedYear, int selectedMonth, int selectedDay) {
+                String formattedDate =  selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                dateEditText.setText(formattedDate);
+            }
+        }, year, month, day);
+
+        datePickerDialog.show();
     }
 }
 
