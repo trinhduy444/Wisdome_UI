@@ -159,7 +159,6 @@
             android:layout_height="wrap_content"
             app:drawableStartCompat="@drawable/minus"
             />
-
         <TextView
             android:id="@+id/textView10"
             android:layout_width="36dp"
