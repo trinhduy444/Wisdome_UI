@@ -85,11 +85,12 @@ public class LoginActivity extends AppCompatActivity {
                                         SharedPreferences.Editor edit = sharedPreferences.edit();
                                         edit.putString("accessToken",acToken);
                                         edit.putString("refreshToken",rfToken);
+                                        edit.putString("dataBackup",response.toString());
                                         edit.apply();
 
                                         /////////////
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                        intent.putExtra("data", response.toString());
+                                        //intent.putExtra("data", response.toString());
                                         Log.d("data","data in Login" + response.toString());
                                         startActivity(intent);
                                     }

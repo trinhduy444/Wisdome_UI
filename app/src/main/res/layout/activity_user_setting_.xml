@@ -28,7 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="5dp"
                 app:cardMaxElevation="5dp">
 
@@ -90,7 +89,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/rewards"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -104,7 +103,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/membership"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -118,7 +117,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/introduce"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -149,7 +148,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/offers_for_members"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -164,7 +163,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/favourite"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -179,7 +178,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/payment_methods"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -194,7 +193,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/booked"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -209,7 +208,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/saved_places"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -224,7 +223,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/sos_contact_number"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -254,7 +253,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/support_center"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -269,7 +268,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/setting"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -284,7 +283,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/share_feedback"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -314,7 +313,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/happy_hands"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -329,7 +328,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/drive_with_us"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="normal"
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
@@ -339,26 +338,16 @@
                     android:layout_width="370dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="22dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center_vertical"
                     android:layout_marginTop="1175dp"
                     android:textSize="20sp"
                     android:textStyle="normal"
-                    tools:ignore="VisualLintButtonSize"
+                    tools:ignore="HardcodedText,VisualLintButtonSize"
                     android:text="some thing"/>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottom"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:background="@color/white"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"-->
-<!--        tools:ignore="VisualLintBottomNav"-->
-<!--        app:menu="@menu/menu_taskbar"/>-->
 
     <include
         layout="@layout/toolbar_bottom"

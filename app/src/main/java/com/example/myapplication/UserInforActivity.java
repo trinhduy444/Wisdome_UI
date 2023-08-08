@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,14 +60,20 @@ public class UserInforActivity extends AppCompatActivity {
 
         //Lay accessToken de post toi info user
         String jsonDataReceive = getIntent().getStringExtra("data");
-
         String shopEmail;
         JSONObject jsonObject;
 
         try {
             jsonObject = new JSONObject(jsonDataReceive);
             JSONObject metadata = jsonObject.getJSONObject("metadata");
-            JSONObject shop = metadata.getJSONObject("shop");
+
+            JSONObject shop;
+            if (metadata.has("shop")) {
+                shop = metadata.getJSONObject("shop");
+            } else {
+                shop = metadata; // Assign the entire "metadata" object to "shop"
+            }
+
             shopEmail = shop.getString("shop_email");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -164,6 +171,12 @@ public class UserInforActivity extends AppCompatActivity {
                                 builder.setMessage("Update User Success");
                                 builder.setPositiveButton("OK", null); // You can add an OnClickListener if needed
 
+                                SharedPreferences sharedPreferences =
+                                        getSharedPreferences("my_sharedPreference",MODE_PRIVATE);
+                                SharedPreferences.Editor edit = sharedPreferences.edit();
+                                edit.putString("dataBackup",response.toString());
+                                edit.apply();
+
                                 // Create and show the dialog
                                 AlertDialog alertDialog = builder.create();
                                 alertDialog.show();
@@ -188,7 +201,6 @@ public class UserInforActivity extends AppCompatActivity {
                 queue.getCache().clear();
             }
         });
-
     }
 
     public void onClickPickDate(View view) {

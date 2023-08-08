@@ -181,7 +181,7 @@ public class PromoActivity extends AppCompatActivity {
     }
     private void hiddenCheckoutBar(){
         // hidden bar
-        lnCheckout.setVisibility(View.INVISIBLE);
+        lnCheckout.setVisibility(View.GONE);
     }
 
     @NonNull
@@ -295,6 +295,7 @@ public class PromoActivity extends AppCompatActivity {
                                 int countFood = 0;
                                 int sumPrice = 0;
 
+                            if(array.length() > 0) { // not empty
                                 // loop cart
                                 for (int i = 0; i < array.length(); i++) {
                                     // food in cart
@@ -311,7 +312,7 @@ public class PromoActivity extends AppCompatActivity {
                                         }
                                     }
                                 }
-
+                            }
                                 // logic checkout bar
                                 // show
                                 if(countFood != 0){

@@ -60,7 +60,8 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView5">
+      app:layout_constraintTop_toBottomOf="@+id/textView5"
+      tools:ignore="ExtraText">
 
    <TextView
        android:layout_width="wrap_content"
@@ -172,7 +173,8 @@
        android:fontFamily="@font/poppins_medium"
        android:inputType="number"
        android:paddingHorizontal="17dp"
-       android:textSize="16sp" />
+       android:textSize="16sp"
+       tools:ignore="SpeakableTextPresentCheck" />
 
    <TextView
        android:layout_width="wrap_content"
@@ -196,15 +198,15 @@
        android:paddingHorizontal="17dp"
        android:textColor="@color/black" />
 
+   // gone
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginHorizontal="40dp"
        android:layout_marginTop="20dp"
        android:text="@string/motorcycle_brand"
-       android:textColor="@color/shadow" />
-
-
+       android:textColor="@color/shadow"
+       android:visibility="gone"/>
    <EditText
        android:layout_width="match_parent"
        android:layout_height="45dp"
@@ -214,17 +216,18 @@
        android:fontFamily="@font/poppins_medium"
        android:gravity="center_vertical"
        android:paddingHorizontal="17dp"
-       android:textColor="@color/black" />
+       android:textColor="@color/black"
+       android:visibility="gone"/>
 
+   // gone
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_marginHorizontal="40dp"
        android:layout_marginTop="20dp"
        android:text="@string/license_plate"
-       android:textColor="@color/shadow" />
-
-
+       android:textColor="@color/shadow"
+       android:visibility="gone"/>
    <EditText
        android:layout_width="match_parent"
        android:layout_height="45dp"
@@ -235,7 +238,8 @@
        android:fontFamily="@font/poppins_medium"
        android:gravity="center_vertical"
        android:paddingHorizontal="17dp"
-       android:textColor="@color/black" />
+       android:textColor="@color/black"
+       android:visibility="gone"/>
 
    <androidx.appcompat.widget.AppCompatButton
        android:id="@+id/update_Profile"
@@ -248,7 +252,8 @@
        android:fontFamily="@font/poppins_bold"
        android:text="@string/save"
        android:textColor="@color/white"
-       android:textSize="20sp" />
+       android:textSize="20sp"
+       android:layout_marginTop="30dp"/>
 
   </LinearLayout>
  </ScrollView>

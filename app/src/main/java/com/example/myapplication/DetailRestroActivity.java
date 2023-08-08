@@ -284,19 +284,21 @@ public class DetailRestroActivity extends AppCompatActivity {
                             int countFood = 0;
                             int sumPrice = 0;
 
-                            // loop cart
-                            for (int i = 0; i < array.length(); i++) {
-                                // food in cart
-                                JSONObject foodObject = array.getJSONObject(i);
-                                String idFood = foodObject.getString("cart_foodId");
-                                int quantity = foodObject.getInt("quantity");
-                                countFood += quantity;
+                            if(array.length() > 0){ // not empty
+                                // loop cart
+                                for (int i = 0; i < array.length(); i++) {
+                                    // food in cart
+                                    JSONObject foodObject = array.getJSONObject(i);
+                                    String idFood = foodObject.getString("cart_foodId");
+                                    int quantity = foodObject.getInt("quantity");
+                                    countFood += quantity;
 
-                                // loop temp data ==> find price food
-                                for(Food fd : tempFoodlist){
-                                    if(idFood.equals(fd.getFoodId())){
-                                        sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
-                                        break;
+                                    // loop temp data ==> find price food
+                                    for(Food fd : tempFoodlist){
+                                        if(idFood.equals(fd.getFoodId())){
+                                            sumPrice += (quantity * Integer.parseInt(fd.getFoodOriginalPrice()));
+                                            break;
+                                        }
                                     }
                                 }
                             }

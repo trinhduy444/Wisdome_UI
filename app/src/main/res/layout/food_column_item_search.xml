@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/foodCardColumn"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
-    android:layout_marginBottom="32dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
     android:background="#FFFFFF">
 
 
@@ -97,69 +97,6 @@
         app:layout_constraintTop_toTopOf="@+id/foodNamePromo"
         app:srcCompat="@drawable/heart_favourite_like" />
 
-    <TextView
-        android:id="@+id/textView10_btnAddFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/custom_buttom"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="9dp"
-        android:text="+   Add"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/white"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodDescriptionPromo" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lnLayout10"
-        app:layout_constraintTop_toBottomOf="@+id/foodDescriptionPromo"
-        app:srcCompat="@drawable/edit"
-        android:visibility="gone"/>
-
-
-    <LinearLayout
-        android:id="@+id/lnLayout10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/foodFavorite"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/textView10_btnDecrease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:drawableStartCompat="@drawable/minus"
-            />
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="36dp"
-            android:layout_height="match_parent"
-            android:background="#F8F5F2"
-            android:gravity="center"
-            android:fontFamily="@font/poppins"
-            android:text="0"
-            android:textColor="#3E4462"
-            android:textSize="12sp"
-            />
-        <TextView
-            android:id="@+id/textView10_btnIncrease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:drawableEndCompat="@drawable/plus_add"/>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

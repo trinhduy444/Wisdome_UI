@@ -126,7 +126,7 @@ public class NewAddCardActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             try {
-                                if (response.getInt("statusCode") == 200) {
+                                if (response.getInt("statusCode") == 201) {
                                     Log.d("Success Order", "ORDER SUCCESSFULLY");
                                     AlertDialog.Builder builder = new AlertDialog.Builder(NewAddCardActivity.this);
                                     builder.setTitle("Success");
@@ -137,7 +137,7 @@ public class NewAddCardActivity extends AppCompatActivity {
                                     alertDialog.show();
 
                                 } else {
-                                    Toast.makeText(NewAddCardActivity.this, "Update Information Fail", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(NewAddCardActivity.this, "Update Informa+tion Fail", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

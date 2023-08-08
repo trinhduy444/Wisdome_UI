@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_screen"
+    tools:context=".SearchFoodActivity"
+    tools:ignore="ExtraText,HardcodedText" >
+
+    // title
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#E84C4F"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:text="123/F1, BinhThanh, HCM city"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foods"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:textSize="24sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:cardCornerRadius="100dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_marginStart="10dp"
+                    app:drawableStartCompat="@drawable/search_24px"/>
+
+                <EditText
+                    android:id="@+id/editText_searchFood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="Search"
+                    android:textColorHint="#7E7E7E"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:minHeight="28dp"
+                    android:textSize="18sp"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck"
+                    android:imeOptions="actionSend"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    // filter
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingVertical="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/poppins"
+                android:includeFontPadding="false"
+                android:padding="10dp"
+                android:text="Filters"
+                app:drawableStartCompat="@drawable/filter_16px" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/poppins"
+                android:includeFontPadding="false"
+                android:padding="10dp"
+                android:text="Nearby"
+                app:drawableStartCompat="@drawable/current_location_red" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/poppins"
+                android:includeFontPadding="false"
+                android:padding="10dp"
+                android:text="Above 4.5"
+                app:drawableStartCompat="@drawable/star_16px" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    // food list
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foodRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/food_column_item_search" />
+    // bottom bar
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</LinearLayout>

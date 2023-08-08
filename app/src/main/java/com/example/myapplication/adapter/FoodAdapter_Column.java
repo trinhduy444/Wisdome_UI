@@ -67,7 +67,6 @@ public class FoodAdapter_Column extends RecyclerView.Adapter<FoodAdapter_Column.
 //        holder.foodImage.setImageResource(foodList.get(position).getFoodImage());
         holder.foodName.setText(foodList.get(position).getFoodName());
         holder.foodDescription.setText(foodList.get(position).getFoodDescription());
-        holder.foodOriginalPrice.setText(foodList.get(position).getFoodOriginalPrice());
         holder.foodDiscountedPrice.setText(foodList.get(position).getFoodDiscountedPrice());
         holder.foodAmount.setText(foodList.get(position).getFoodAmount());
 
@@ -517,7 +516,7 @@ public class FoodAdapter_Column extends RecyclerView.Adapter<FoodAdapter_Column.
     public static final class FoodViewHolder extends RecyclerView.ViewHolder{
 
         ImageView foodImage,imageView;
-        TextView foodName, foodDescription, foodOriginalPrice, foodDiscountedPrice, foodAmount,
+        TextView foodName, foodDescription, foodDiscountedPrice, foodAmount,
                 textView10,textView10_btnIncrease,textView10_btnDecrease,textView10_btnAdd;
         LinearLayout lnLayout10;
 
@@ -526,7 +525,6 @@ public class FoodAdapter_Column extends RecyclerView.Adapter<FoodAdapter_Column.
             foodImage= itemView.findViewById(R.id.foodImagePromo);
             foodName = itemView.findViewById(R.id.foodNamePromo);
             foodDescription = itemView.findViewById(R.id.foodDescriptionPromo);
-            foodOriginalPrice = itemView.findViewById(R.id.foodOriginalPricePromo);
             foodDiscountedPrice = itemView.findViewById(R.id.foodDiscountedPricePromo);
             foodAmount = itemView.findViewById(R.id.foodAmountPromo);
             //

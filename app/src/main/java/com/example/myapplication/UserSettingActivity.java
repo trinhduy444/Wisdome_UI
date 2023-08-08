@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,7 @@ public class UserSettingActivity extends AppCompatActivity {
 
     Button userProfile;
 
-    RelativeLayout showHomeButton,showCartButton;
+    RelativeLayout showHomeButton,showCartButton,showSearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,21 @@ public class UserSettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserSettingActivity.this, UserInforActivity.class);
-                String jsonDataReceive = getIntent().getStringExtra("data");
+
+                // first try get
+                //String jsonDataReceive = getIntent().getStringExtra("data");
+
+                // second try get
+                SharedPreferences sharedPreferences =
+                        getSharedPreferences("my_sharedPreference",MODE_PRIVATE);
+                String jsonDataReceive = sharedPreferences.getString("dataBackup", "data in Login");
+
                 intent.putExtra("data", jsonDataReceive);
                 startActivity(intent);
             }
         });
 
-        // Direct to Home
+        // go HOME
         showHomeButton = findViewById(R.id.showHome);
         showHomeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,13 +64,25 @@ public class UserSettingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // set button listener
+
+        // go CART
         showCartButton = findViewById(R.id.showCartButton2);
         showCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(ToolbarBottomActivity.this, "ok run", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(UserSettingActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // go SEARCH
+        showSearchButton = findViewById(R.id.showSearchButton);
+        showSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(ToolbarBottomActivity.this, "ok run", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UserSettingActivity.this, SearchFoodActivity.class);
                 startActivity(intent);
             }
         });
