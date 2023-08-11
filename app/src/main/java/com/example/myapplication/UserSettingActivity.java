@@ -26,7 +26,7 @@ import org.json.JSONObject;
 
 public class UserSettingActivity extends AppCompatActivity {
 
-    Button userProfile;
+    Button userProfile,btnBooked;
 
     RelativeLayout showHomeButton,showCartButton,showSearchButton;
 
@@ -36,6 +36,7 @@ public class UserSettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_setting_);
 
         // route to user Information
+
         userProfile = findViewById(R.id.editprofile);
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +55,15 @@ public class UserSettingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        // go Orders
+        btnBooked = findViewById(R.id.btnBooked);
+        btnBooked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserSettingActivity.this, HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
         // go HOME
         showHomeButton = findViewById(R.id.showHome);
         showHomeButton.setOnClickListener(new View.OnClickListener() {

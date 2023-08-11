@@ -90,4 +90,14 @@
     <string name="back_id_card_photo">Take a photo of the back of your ID card</string>
     <string name="full_face_photo">Take a picture of your full face</string>
     <string name="start">Start</string>
+
+    <string name="go">Đi lại</string>
+    <string name="eat">Ăn uống</string>
+    <string name="go_market">Đi chợ</string>
+    <string name="finance">Tài chính</string>
+    <string name="delivery">Giao hàng</string>
+    <string name="gift">Quà tặng</string>
+    <string name="history">Lịch sử</string>
+    <string name="activity_history">Lịch sử hoạt động</string>
+    <string name="activity_history_text">Bạn không có cuốc xe trong quá khứ</string>
 </resources>

@@ -184,7 +184,7 @@
                     tools:ignore="RtlHardcoded,VisualLintButtonSize" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/btnBooked"
                     android:layout_width="370dp"
                     android:layout_height="60dp"
                     android:layout_below="@+id/view2"
