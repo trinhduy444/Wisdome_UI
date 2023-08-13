@@ -141,6 +141,7 @@ public class NewAddCardActivity extends AppCompatActivity {
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Log.e("Error Response", response.toString()); // Xem thông báo lỗi từ server
                             }
                         }
                     },
