@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="@color/red"
-        android:text="Số đơn hàng của bạn là: 10" />
+        android:text="Số đơn hàng của bạn là: 0" />
 
     <LinearLayout
         android:layout_width="match_parent"

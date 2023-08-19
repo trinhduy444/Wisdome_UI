@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class HistoryActivity extends AppCompatActivity {
     private OrderAdapter orderAdapter;
     TextView textOrderCount;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +45,11 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         getAllOrders();
+
     }
+
     private void getAllOrders() {
         SharedPreferences sharedPreferences =
                 getSharedPreferences("my_sharedPreference",MODE_PRIVATE);
@@ -60,7 +66,7 @@ public class HistoryActivity extends AppCompatActivity {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            // Xử lý dữ liệu như đã mô tả trong phần trước
+                            // Xử lý dữ liệu
                             try {
                                 JSONArray ordersArray = response.getJSONArray("metadata");
 
@@ -96,6 +102,32 @@ public class HistoryActivity extends AppCompatActivity {
                                 textOrderCount.setText("Số đơn hàng của bạn: "+ordersArray.length());
                                 orderAdapter = new OrderAdapter(orderList);
                                 recyclerView.setAdapter(orderAdapter);
+
+                                //Su ly su kien click order
+                                orderAdapter.setOnItemClickListener(new OrderAdapter.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(String orderId) {
+                                        Order selectedOrder = findOrderByID(orderId,orderList);
+
+                                        if(selectedOrder != null){
+                                            Intent intent = new Intent(HistoryActivity.this, OrderDetailActivity.class);
+                                            intent.putExtra("orderId", orderId); // Truyền orderId qua OrderDetailActivity
+
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("_id", selectedOrder.getOrder_Id());
+                                            bundle.putString("customer_id", selectedOrder.getCustomer_Id());
+                                            bundle.putString("date_order",selectedOrder.getDate_order());
+                                            bundle.putString("time_order",selectedOrder.getTime_order());
+                                            bundle.putString("shop_name", selectedOrder.getShop_name());
+                                            bundle.putString("status", selectedOrder.getStatus());
+                                            bundle.putDouble("totalPrice", selectedOrder.getTotalPrice());
+
+                                            intent.putExtra("orderBundle", bundle);
+                                            HistoryActivity.this.startActivity(intent);
+                                        }
+
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -122,4 +154,12 @@ public class HistoryActivity extends AppCompatActivity {
         }
     }
 
+    private Order findOrderByID(String orderId, List<Order> orderList){
+        for(Order order : orderList){
+            if(order.getOrder_Id().equals(orderId)){
+                return order;
+            }
+        }
+        return null;
+    }
 }
