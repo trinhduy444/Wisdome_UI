@@ -4,9 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/cardViewOrder"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
     android:layout_margin="8dp">
+
     <LinearLayout
         android:id="@+id/recyclerViewOrder"
         android:layout_width="match_parent"
@@ -18,7 +20,7 @@
             android:id="@+id/imageShop"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/shop_icon"/>
+            android:src="@drawable/shop_icon" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,31 +32,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:id="@+id/textTotalPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:id="@+id/textDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:id="@+id/textTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp" />
 
             <!-- Các thành phần khác (TextView, ImageView) tương tự -->
 

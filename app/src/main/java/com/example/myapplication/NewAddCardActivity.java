@@ -125,6 +125,14 @@ public class NewAddCardActivity extends AppCompatActivity {
             jsonObject.put("food_name",foodIdsArray);
             jsonObject.put("food_amount",food_amount);
 
+            //Order Detail's Information
+            String note = sharedPreferences.getString("note","");
+            jsonObject.put("shipper_id","64c3f5b612f6a57bcf01c0e4");
+            jsonObject.put("note",note);
+            jsonObject.put("address_restaurant","123 Main Street, City, Country");
+            jsonObject.put("address_customer","456 Park Avenue, Town, Country");
+            jsonObject.put("payment_name","Cash");
+
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.POST,
                     urlCreateOrder,
