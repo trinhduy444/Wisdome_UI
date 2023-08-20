@@ -116,7 +116,7 @@
         android:background="@drawable/custom_buttom"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="continue"
+        android:text="pay"
         android:textColor="@color/white"
         android:textSize="17sp"
         tools:ignore="TextContrastCheck" />

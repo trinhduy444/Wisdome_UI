@@ -62,6 +62,12 @@ public class NewAddCardActivity extends AppCompatActivity {
             }
         });
 
+        // add text price
+        SharedPreferences sharedPreferences =
+                getSharedPreferences("my_sharedPreference",MODE_PRIVATE);
+        Integer totalPrice = sharedPreferences.getInt("totalPrice",0);
+        btn_success.setText("Pay " + totalPrice + "VND");
+
     }
 
     public static Map<String, Integer> parseCartItems(String shoppingCart) {
@@ -83,6 +89,7 @@ public class NewAddCardActivity extends AppCompatActivity {
 
         return cartItemsMap;
     }
+
     private void createOrders(){
 
         SharedPreferences sharedPreferences =
@@ -177,6 +184,7 @@ public class NewAddCardActivity extends AppCompatActivity {
         }
 
     }
+
     private String getCurrentDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Date currentDate = new Date();
