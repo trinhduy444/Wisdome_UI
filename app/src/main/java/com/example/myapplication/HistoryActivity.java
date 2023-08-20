@@ -35,8 +35,6 @@ public class HistoryActivity extends AppCompatActivity {
     private OrderAdapter orderAdapter;
     TextView textOrderCount;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +97,8 @@ public class HistoryActivity extends AppCompatActivity {
                                     );
                                     orderList.add(order);
                                 }
-                                textOrderCount.setText("Số đơn hàng của bạn: "+ordersArray.length());
+                                // set number order
+                                textOrderCount.setText(Integer.toString(ordersArray.length()));
                                 orderAdapter = new OrderAdapter(orderList);
                                 recyclerView.setAdapter(orderAdapter);
 

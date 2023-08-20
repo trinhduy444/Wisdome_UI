@@ -3,8 +3,16 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/pink"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    >
+    android:background="#E84C4F"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <TextView
+        android:fontFamily="@font/poppins_medium"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order History"
+        android:textColor="@color/white"
+        android:textSize="24sp"/>
 
 </androidx.appcompat.widget.Toolbar>

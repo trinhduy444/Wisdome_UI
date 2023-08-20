@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:background="@drawable/bg_screen"
     tools:context=".HistoryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -54,14 +54,38 @@
                 android:text="@string/gift"/>
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    <TextView
-        android:id="@+id/textOrderCount"
-        android:padding="5dp"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/red"
-        android:text="Số đơn hàng của bạn là: 0" />
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textOrderCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_medium"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/textOrderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textSize="18sp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Đơn Hàng" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

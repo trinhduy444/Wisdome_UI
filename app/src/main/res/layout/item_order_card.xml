@@ -20,6 +20,7 @@
             android:id="@+id/imageShop"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
             android:src="@drawable/shop_icon" />
 
         <LinearLayout

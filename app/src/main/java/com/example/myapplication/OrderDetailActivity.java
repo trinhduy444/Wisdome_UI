@@ -37,21 +37,22 @@ public class OrderDetailActivity extends AppCompatActivity {
 
     DecimalFormat decimalFormat = new DecimalFormat("###,### VNĐ");
 
-    private TextView txt_date_delivery,txt_time_delivery,txt_delivery_status,txt_address_restaurant,txt_address_custommer,txt_price,txt_price_delivery,txt_totalPrice;
-    private RatingBar rating_order;
+    private TextView txt_date_delivery,txt_time_delivery,
+            txt_delivery_status,txt_address_restaurant,txt_address_custommer,txt_price,txt_price_delivery,txt_totalPrice;
+    //private RatingBar rating_order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderdetail);
 
-        Toolbar toolbar = findViewById(R.id.toolbarOrderdetail);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        Toolbar toolbar = findViewById(R.id.toolbarOrderdetail);
+//        setSupportActionBar(toolbar);
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//        }
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         orderId = getIntent().getStringExtra("orderId");
         Bundle bundle = getIntent().getBundleExtra("orderBundle");
@@ -59,9 +60,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         getOrderDetail(bundle,orderId);
 
         // Xử lý sự kiện nút "Back"
-        toolbar.setNavigationOnClickListener(view -> onBackPressed());
-
-
+        //toolbar.setNavigationOnClickListener(view -> onBackPressed());
     }
 
     private void getOrderDetail(Bundle bundle, String orderId) {
@@ -99,7 +98,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 txt_delivery_status = findViewById(R.id.txt_delivery_status);
                                 txt_address_restaurant = findViewById(R.id.txt_address_restaurant);
                                 txt_address_custommer = findViewById(R.id.txt_address_custommer);
-                                rating_order = findViewById(R.id.rating_order);
+                                //rating_order = findViewById(R.id.rating_order);
                                 txt_price = findViewById(R.id.txt_price);
                                 txt_price_delivery = findViewById(R.id.txt_price_delivery);
                                 txt_totalPrice = findViewById(R.id.txt_totalPrice);
@@ -138,7 +137,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                                 txt_address_custommer.setText(addressCustomer);
 
                                 float normalizedRating = (float) Math.min(Math.max(rating, 0.0), 5.0);
-                                rating_order.setRating(normalizedRating);
+                                //rating_order.setRating(normalizedRating);
 
 
                             } catch (JSONException e) {

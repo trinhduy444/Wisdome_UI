@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_screen"
     android:orientation="vertical">
 
     <!-- Toolbar -->
@@ -19,134 +21,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
             <TextView
-                android:layout_width="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Wisdom Delivery"
                 android:textColor="@color/brand_primary"
                 android:textSize="24sp"
                 android:textStyle="bold"/>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-
-                android:background="@drawable/border_gray"> <!-- Sử dụng tệp drawable border_gray.xml -->
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <!-- TextView cho Ngày giao hàng -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ngày giao hàng:"
-                            android:textSize="18sp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/txt_date_delivery"
-                            android:text="DD/MM/YYYY"
-                            android:textSize="18sp"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-
-                    <!-- TextView cho Giờ giao hàng -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Giờ giao hàng:"
-                            android:textSize="18sp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/txt_time_delivery"
-                            android:text="HH:MM AM/PM"
-                            android:textSize="18sp"
-                            android:layout_marginStart="4dp"/>
-                    </LinearLayout>
-
-                    <!-- TextView cho Trạng thái giao -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Trạng thái giao:"
-                            android:textSize="18sp"/>
-
-                        <TextView
-                            android:id="@+id/txt_delivery_status"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:text=""
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="Bạn thấy đơn hàng này như thế nào?"
-                android:textSize="18sp"/>
-            />
-
-            <!-- Rating -->
-            <RatingBar
-                android:background="@drawable/border_gray"
-                android:id="@+id/rating_order"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:numStars="5"
-                android:rating="0"
-                android:stepSize="0.5"
-                android:layout_marginTop="8dp"
-                android:contentDescription="Đánh giá: 4.5 sao"
-                android:progressTint="@color/yellow" />
-
             <!-- Ảnh shipper, tên shipper và biển số xe -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/border_gray">
+                android:padding="8dp"
+                android:background="@drawable/card_number">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/icon_shipper"
-                    android:background="@drawable/circle_background"/>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="100dp">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/icon_shipper" />
+                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -156,28 +59,175 @@
                     android:layout_marginStart="16dp">
 
                     <TextView
+                        android:fontFamily="@font/poppins_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phạm Quang Sáng"
-                        android:textSize="16sp"/>
+                        android:textSize="17sp"/>
 
                     <TextView
+                        android:fontFamily="@font/poppins_medium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Biển số xe: 59H-32177"
-                        android:textSize="16sp"/>
+                        android:textSize="17sp"/>
 
                 </LinearLayout>
             </LinearLayout>
 
-
+            <!-- order -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-
                 android:orientation="vertical"
-                android:background="@drawable/border_gray">
+                android:background="@drawable/card_number"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Tiêu đề -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Delivery foods"
+                        android:textColor="#E84C4F"
+                        android:textSize="20sp"
+                        android:layout_marginTop="8dp"/>
+
+                    <!-- Danh sách sản phẩm -->
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5 x Thit bo Kobe"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12 x Ca Hoi Nuong"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_number"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Delivery time"
+                    android:textColor="#E84C4F"
+                    android:textSize="20sp"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- TextView cho Ngày giao hàng -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ngày giao hàng:"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_date_delivery"
+                        android:text="30/04/1975"
+                        android:textSize="18sp"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+
+                <!-- TextView cho Giờ giao hàng -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giờ giao hàng:"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_time_delivery"
+                        android:text="10:30 AM"
+                        android:textSize="18sp"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+
+                <!-- TextView cho Trạng thái giao -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trạng thái giao:"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:id="@+id/txt_delivery_status"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="pending"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- location -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_number"
+                android:layout_marginTop="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Delivery location"
+                    android:textColor="#E84C4F"
+                    android:textSize="20sp"
+                    android:layout_marginTop="8dp"/>
 
                 <!-- TextView cho Địa chỉ cửa hàng -->
                 <LinearLayout
@@ -189,17 +239,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
                         android:text="Địa chỉ cửa hàng:"
-                        android:textSize="14sp"
-                        android:textStyle="italic"
+                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
                         android:layout_height="wrap_content"
                         android:id="@+id/txt_address_restaurant"
-                        android:text=""
-                        android:textSize="14sp"
+                        android:text="Nguyen Van Cu"
+                        android:textSize="18sp"
                         android:layout_marginStart="8dp"/>
                 </LinearLayout>
 
@@ -211,95 +263,66 @@
                     android:layout_marginTop="8dp">
 
                     <TextView
+                        android:fontFamily="@font/poppins_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Địa chỉ giao hàng:"
-                        android:textStyle="italic"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:layout_gravity="center_vertical"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
+                        android:gravity="end"
                         android:layout_height="wrap_content"
                         android:id="@+id/txt_address_custommer"
-
-                        android:text=""
-                        android:textSize="14sp"
+                        android:text="Thu Duc, Ho Chi Minh"
+                        android:textSize="18sp"
                         android:layout_marginStart="8dp"/>
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!-- pay -->
             <LinearLayout
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/border_gray"> <!-- Sử dụng tệp drawable border_gray.xml -->
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:background="@drawable/card_number">
 
-                <!-- Tiêu đề -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chi tiết đơn hàng"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Payment"
+                    android:textColor="#E84C4F"
+                    android:textSize="20sp"
                     android:layout_marginTop="8dp"/>
-
-                <!-- Danh sách sản phẩm -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="5 x Thit bo Kobe"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12 x Ca Hoi Nuong"
-                    android:textSize="14sp"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/border_gray"> <!-- Sử dụng tệp drawable border_gray.xml -->
-
-                <!-- Thông tin giá -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chi tiết thanh toán"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:layout_marginTop="5dp"/>
 
                 <!-- Thông tin giá -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
                     android:layout_gravity="end"> <!-- Thêm thuộc tính layout_gravity -->
 
                     <TextView
+                        android:fontFamily="@font/poppins_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Đơn giá:"
-                        android:textSize="16sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
                         android:id="@+id/txt_price"
-                        android:text=""
-                        android:textSize="14sp" /> <!-- Thêm khoảng cách nếu cần -->
+                        android:gravity="end"
+                        android:text="53000vnd"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <!-- LinearLayout cho Phí vận chuyển -->
@@ -307,48 +330,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
                     android:layout_gravity="end"> <!-- Thêm thuộc tính layout_gravity -->
 
                     <TextView
+                        android:fontFamily="@font/poppins_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phí vận chuyển:"
-                        android:textSize="16sp"/>
+                        android:textSize="18sp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
                         android:id="@+id/txt_price_delivery"
-                        android:text=""
-                        android:textSize="14sp" /> <!-- Thêm khoảng cách nếu cần -->
+                        android:gravity="end"
+                        android:text="3000vnd"
+                        android:textSize="18sp" /> <!-- Thêm khoảng cách nếu cần -->
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
                     android:layout_gravity="end"> <!-- Thêm thuộc tính layout_gravity -->
 
                     <TextView
+                        android:fontFamily="@font/poppins_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tổng giá:"
-                        android:textSize="17sp"/>
+                        android:textSize="20sp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:id="@+id/txt_totalPrice"
-                        android:textColor="@color/brand_primary"
-                        android:text=""
-                        android:textSize="15sp" /> <!-- Thêm khoảng cách nếu cần -->
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="end"
+                        android:text="56000vnd"
+                        android:textSize="18sp" /> <!-- Thêm khoảng cách nếu cần -->
                 </LinearLayout>
 
             </LinearLayout>
-
 
         </LinearLayout>
     </ScrollView>
@@ -359,27 +384,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
-
-        <!-- Nút Trợ giúp -->
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:text="Trợ giúp"
-            android:id="@+id/btn_helpOrder"
-            />
+        android:paddingHorizontal="5dp">
 
         <!-- Nút Đặt lại -->
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="10dp"
-
+            android:layout_margin="8dp"
+            android:backgroundTint="#E84C4F"
             android:text="Đặt lại"
-            android:id="@+id/btn_orderAgain"
-            />
+            android:id="@+id/btn_orderAgain" />
+
+        <!-- Nút Trợ giúp -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Trợ giúp"
+            android:id="@+id/btn_helpOrder"
+            android:backgroundTint="@color/gray"/>
+
+
     </LinearLayout>
 </LinearLayout>
